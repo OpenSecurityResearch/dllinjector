@@ -1,0 +1,46 @@
+DLLInjector v0.1
+brad.antoniewicz@foundstone.com
+--------------------------------------------------
+
+This tool aims to implement various DLL injection techniques
+that work across multiple Windows versions. The user defines
+a DLL, a process ID, and technique and the tool attempts to
+inject the DLL into the process and execute it. 
+
+It currently supports the following methods:
+
+	1. CreateRemoteThread()
+		
+	2. NtCreateThreadEx()
+		The following sites were used as a reference when implementing 
+		this method:
+		
+		http://securityxploded.com/ntcreatethreadex.php
+		http://noobys-journey.blogspot.com/2010/11/injecting-shellcode-into-xpvista7.html
+		
+		
+	3. Suspend/Inject/Resume
+		The following sites were used as a reference when implementing 
+		this method:
+		
+		http://syprog.blogspot.com/2012/05/createremotethread-bypass-windows.html
+		http://www.kdsbest.com/?p=159
+
+Todo:
+	1. Implement SetWindowsHookEx() Method
+		http://www.kdsbest.com/?p=179
+	
+	2. Implement QueueUserAPC() Method
+		http://webcache.googleusercontent.com/search?q=cache:G8i5oxOWbDMJ:www.hackforums.net/archive/index.php/thread-2442150.html+&cd=3&hl=en&ct=clnk&gl=us&client=firefox-a
+	
+	3. Implement RtlCreateUserThread() Method 
+		http://syprog.blogspot.com/2012/05/createremotethread-bypass-windows.html?showComment=1338375764336#c4138436235159645886
+		http://undocumented.ntinternals.net/UserMode/Undocumented%20Functions/Executable%20Images/RtlCreateUserThread.html
+	
+	4. Implement PrivEscalation as per: 
+		https://github.com/rapid7/metasploit-framework/tree/master/external/source/meterpreter/source/extensions/priv/server/elevate
+	
+
+
+The original inspiration for this tool was from VMInjector:
+	https://github.com/batistam/VMInjector
